@@ -11,7 +11,7 @@ var lowercaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "
 var uppercaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 // DECLARE a list of 'specialCharacters'
-var specialCharacters = [ "#", "@", "!", "$", "%", "&", "_", "?"];
+var specialCharacters = ["#", "@", "!", "$", "%", "&", "_", "?"];
 
 
 function generatePassword() {
@@ -46,8 +46,8 @@ function generatePassword() {
 
   // AND APPEND one random number from the 'numbers' list
   const randomNumber = Math.floor(Math.random() * numbers.length);
-  console.log( numbers[randomNumber]);
-  
+  console.log(numbers[randomNumber]);
+
   // CONFIRM if the password generator 'isUsingLowercaseLetters'
   var isUsingLowercaseLetters;
   var isUsingLowercaseLetters = confirm("Click OKAY to use lowercase letters?");
@@ -61,19 +61,37 @@ function generatePassword() {
   lowercaseLetters.push(charactersToUse);
   //AND APPEND one random lowercase letter from the 'lowercaseLetters' list
   const randomLowercase = Math.floor(Math.random() * lowercaseLetters.length);
-  console.log( lowercaseLetters[randomLowercase]);
+  console.log(lowercaseLetters[randomLowercase]);
 
   // CONFIRM if the password generator 'isUsingUppercaseLetters'
-  
+  var isUsingUppercaseLetters;
+  var isUsingUppercaseLetters = confirm("Click OKAY to use UPPERCASE Letters?");
   // IF 'isUsingUppercaseLetters'
- 
+  if (isUsingUppercaseLetters == true) {
+    txt = "You are using UPPERCASE Letters!";
+  } else {
+    txt = "No UPPERCASE Letters for you!";
+  }
   // THEN push 'uppercaseLetters' into 'charactersToUse' list
-  
+  uppercaseLetters.push(charactersToUse);
+
+  const randomUppercase = Math.floor(Math.random() * uppercaseLetters.length);
+  console.log(uppercaseLetters[randomUppercase]);
 
   // CONFIRM if the password generator 'isUsingSpecialCharacters'
-
+  var isUsingSpecialCharacters;
+  var isUsingSpecialCharacters = confirm("Click OKAY to use Special Characters?");
   // IF 'isUsingSpecialCharacters'
+  if (isUsingSpecialCharacters == true) {
+    txt = "You are using Special Characters!";
+  } else {
+    txt = "No Special Characters for you!";
+  }
   // THEN push 'specialCharacters' into 'charactersToUse' list
+  specialCharacters.push(charactersToUse);
+
+  const randomSpecial = Math.floor(Math.random() * specialCharacters.length);
+  console.log(specialCharacters[randomSpecial]);
 
   // IF NOT 'charactersToUse.length' **if the user selects no options**
   //THEN ALERT to the user that they need to provide a correct length
@@ -81,9 +99,9 @@ function generatePassword() {
 
 
   // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
-  for (var i = 0; i < passwordLength; i++) {
+  //for (var i = 0; i < passwordLength; i++) {
 
-  }
+  //}
   // OR
 
   // WHILE password.length < passwordLength
