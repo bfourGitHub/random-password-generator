@@ -2,21 +2,24 @@
 var generateBtn = document.querySelector("#generate");
 
 //DECLARE a list of 'numbers'
-
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // DECLARE a list of 'lowercaseLetters'
+var lowercaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // DECLARE a list of 'uppercaseLetters'
+var uppercaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 // DECLARE a list of 'specialCharacters'
+var specialCharacters = [ "#", "@", "!", "$", "%", "&", "_", "?"];
 
 
 function generatePassword() {
-  
+
   // PROMPT the user for a 'passwordLength'
   var passwordLength = prompt("Provide a length");
   // IF NOT ( passwordLength >= 8 || passwordLength <=128 )
-  if( !( passwordLength >= 8 || passwordLength <=128 )) {
+  if (!(passwordLength >= 8 || passwordLength <= 128)) {
     // THEN alert to the user to provide a correct password length
     alert("WRONG!")
     // AND Exit Function
@@ -25,26 +28,47 @@ function generatePassword() {
 
   //DECLARE a new list of 'charactersToUse'
   var charactersToUse = [];
-  
+
   // DECLARE a new 'password' string
   var password = "";
-  
+
   // CONFIRM if the password generator  'isUsingNumbers'
-
+  var isUsingNumbers;
+  var isUsingNumbers = confirm("Click OKAY to use numbers?");
   // IF 'isUsingNumbers'
+  if (isUsingNumbers == true) {
+    txt = "You are using numbers!";
+  } else {
+    txt = "No numbers for you!";
+  }
   // THEN push 'numbers' into 'charactersToUse' list
+  numbers.push(charactersToUse);
+
   // AND APPEND one random number from the 'numbers' list
-
-  // CONFIRM if the password generator 'isUsingLowercaseLetters'
-
-  // IF 'isUsingLowercaseLetters'
-  // THEN push 'lowercaseLetters' into 'charactersToUse' list
+  const randomNumber = Math.floor(Math.random() * numbers.length);
+  console.log( numbers[randomNumber]);
   
+  // CONFIRM if the password generator 'isUsingLowercaseLetters'
+  var isUsingLowercaseLetters;
+  var isUsingLowercaseLetters = confirm("Click OKAY to use lowercase letters?");
+  // IF 'isUsingLowercaseLetters'
+  if (isUsingLowercaseLetters == true) {
+    txt = "You are using lowercase letters!";
+  } else {
+    txt = "No lowercase letters for you!";
+  }
+  // THEN push 'lowercaseLetters' into 'charactersToUse' list
+  lowercaseLetters.push(charactersToUse);
+  //AND APPEND one random lowercase letter from the 'lowercaseLetters' list
+  const randomLowercase = Math.floor(Math.random() * lowercaseLetters.length);
+  console.log( lowercaseLetters[randomLowercase]);
 
   // CONFIRM if the password generator 'isUsingUppercaseLetters'
-
+  
   // IF 'isUsingUppercaseLetters'
+ 
   // THEN push 'uppercaseLetters' into 'charactersToUse' list
+  
 
   // CONFIRM if the password generator 'isUsingSpecialCharacters'
 
@@ -57,13 +81,13 @@ function generatePassword() {
 
 
   // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
-  for ( var i = 0; i < passwordLength; i++) {
+  for (var i = 0; i < passwordLength; i++) {
 
   }
   // OR
 
   // WHILE password.length < passwordLength
-  while( password.length < passwordLength ) {
+  while (password.length < passwordLength) {
 
     // SELECT 'randomCharacter' from 'charactersToUse'
     // APPEND 'randonCharacter' to 'password' string
