@@ -17,11 +17,12 @@ var specialCharacters = ["#", "@", "!", "$", "%", "&", "_", "?"];
 function generatePassword() {
 
   // PROMPT the user for a 'passwordLength'
-  var passwordLength = prompt("Provide a length");
+  var passwordLength = parseInt(prompt("Provide a length between 8 and 128 characters."))
   // IF NOT ( passwordLength >= 8 || passwordLength <=128 )
-  if (!(passwordLength >= 8 || passwordLength <= 128)) {
+  if (!(passwordLength >= 8 && passwordLength <= 128)) {
     // THEN alert to the user to provide a correct password length
-    alert("WRONG!")
+    alert("Please select a password LENGTH between 8 and 128 characters!")
+    
     // AND Exit Function
     return;
   }
@@ -30,23 +31,23 @@ function generatePassword() {
   var charactersToUse = [];
 
   // DECLARE a new 'password' string
-  var password = "";
+  var password = " ";
 
   // CONFIRM if the password generator  'isUsingNumbers'
-  var isUsingNumbers;
-  var isUsingNumbers = confirm("Click OKAY to use numbers?");
+  
+  var isUsingNumbers = confirm("Click OKAY to use numbers.")
   // IF 'isUsingNumbers'
   if (isUsingNumbers == true) {
-    txt = "You are using numbers!";
-  } else {
-    txt = "No numbers for you!";
+    //IF true add numbers to charactersToUse
+    charactersToUse = charactersToUse.concat(numbers);
   }
   // THEN push 'numbers' into 'charactersToUse' list
-  numbers.push(charactersToUse);
+  //numbers.push(charactersToUse);
 
   // AND APPEND one random number from the 'numbers' list
   const randomNumber = Math.floor(Math.random() * numbers.length);
   console.log(numbers[randomNumber]);
+  
 
   // CONFIRM if the password generator 'isUsingLowercaseLetters'
   var isUsingLowercaseLetters;
@@ -108,8 +109,9 @@ function generatePassword() {
   while (password.length < passwordLength) {
 
     // SELECT 'randomCharacter' from 'charactersToUse'
-    // APPEND 'randonCharacter' to 'password' string
-
+    var randomCharacter = charactersToUse.slice(0, passwordLength)
+    // APPEND 'randomCharacter' to 'password' string
+    randomCharacter.push(password);
   }
 
   //RETURN 'password'
