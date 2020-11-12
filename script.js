@@ -45,59 +45,58 @@ function generatePassword() {
   //numbers.push(charactersToUse);
 
   // AND APPEND one random number from the 'numbers' list
-  const randomNumber = Math.floor(Math.random() * numbers.length);
-  console.log(numbers[randomNumber]);
+  //const randomNumber = Math.floor(Math.random() * numbers.length);
+  //console.log(numbers[randomNumber]);
   
 
   // CONFIRM if the password generator 'isUsingLowercaseLetters'
-  var isUsingLowercaseLetters;
-  var isUsingLowercaseLetters = confirm("Click OKAY to use lowercase letters?");
+  
+  var isUsingLowercaseLetters = confirm("Click OKAY to use lowercase letters.");
   // IF 'isUsingLowercaseLetters'
   if (isUsingLowercaseLetters == true) {
-    txt = "You are using lowercase letters!";
-  } else {
-    txt = "No lowercase letters for you!";
+    charactersToUse = charactersToUse.concat(lowercaseLetters);
   }
   // THEN push 'lowercaseLetters' into 'charactersToUse' list
-  lowercaseLetters.push(charactersToUse);
+  //lowercaseLetters.push(charactersToUse);
   //AND APPEND one random lowercase letter from the 'lowercaseLetters' list
-  const randomLowercase = Math.floor(Math.random() * lowercaseLetters.length);
-  console.log(lowercaseLetters[randomLowercase]);
+  //const randomLowercase = Math.floor(Math.random() * lowercaseLetters.length);
+  //console.log(lowercaseLetters[randomLowercase]);
 
   // CONFIRM if the password generator 'isUsingUppercaseLetters'
-  var isUsingUppercaseLetters;
-  var isUsingUppercaseLetters = confirm("Click OKAY to use UPPERCASE Letters?");
+  
+  var isUsingUppercaseLetters = confirm("Click OKAY to use UPPERCASE Letters.");
   // IF 'isUsingUppercaseLetters'
   if (isUsingUppercaseLetters == true) {
-    txt = "You are using UPPERCASE Letters!";
-  } else {
-    txt = "No UPPERCASE Letters for you!";
+    charactersToUse = charactersToUse.concat(uppercaseLetters);
   }
   // THEN push 'uppercaseLetters' into 'charactersToUse' list
-  uppercaseLetters.push(charactersToUse);
+  //uppercaseLetters.push(charactersToUse);
 
-  const randomUppercase = Math.floor(Math.random() * uppercaseLetters.length);
-  console.log(uppercaseLetters[randomUppercase]);
+  //const randomUppercase = Math.floor(Math.random() * uppercaseLetters.length);
+  //console.log(uppercaseLetters[randomUppercase]);
 
   // CONFIRM if the password generator 'isUsingSpecialCharacters'
-  var isUsingSpecialCharacters;
-  var isUsingSpecialCharacters = confirm("Click OKAY to use Special Characters?");
+  
+  var isUsingSpecialCharacters = confirm("Click OKAY to use Special Characters.");
   // IF 'isUsingSpecialCharacters'
   if (isUsingSpecialCharacters == true) {
-    txt = "You are using Special Characters!";
-  } else {
-    txt = "No Special Characters for you!";
+    charactersToUse = charactersToUse.concat(specialCharacters);
   }
   // THEN push 'specialCharacters' into 'charactersToUse' list
-  specialCharacters.push(charactersToUse);
+  //specialCharacters.push(charactersToUse);
 
-  const randomSpecial = Math.floor(Math.random() * specialCharacters.length);
-  console.log(specialCharacters[randomSpecial]);
+  //const randomSpecial = Math.floor(Math.random() * specialCharacters.length);
+  //console.log(specialCharacters[randomSpecial]);
 
-  // IF NOT 'charactersToUse.length' **if the user selects no options**
-  //THEN ALERT to the user that they need to provide a correct length
-  //AND EXIT FUNCTION
-
+  // IF NO characters are chosen to use **if the user selects no options**
+  if ( !isUsingNumbers && !isUsingLowercaseLetters && !isUsingUppercaseLetters && !isUsingSpecialCharacters) {
+    //THEN ALERT to the user that they must select at least ONE option
+    alert("Sorry, you must select at least ONE option to create your password.");
+    //AND EXIT FUNCTION
+    return;
+  }
+    
+    
 
   // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
   //for (var i = 0; i < passwordLength; i++) {
@@ -109,9 +108,9 @@ function generatePassword() {
   while (password.length < passwordLength) {
 
     // SELECT 'randomCharacter' from 'charactersToUse'
-    var randomCharacter = charactersToUse.slice(0, passwordLength)
+    var randomCharacter = charactersToUse [ Math.floor(Math.random() * charactersToUse.length)];
     // APPEND 'randomCharacter' to 'password' string
-    randomCharacter.push(password);
+    password += randomCharacter
   }
 
   //RETURN 'password'
