@@ -18,7 +18,7 @@ function generatePassword() {
 
   // PROMPT the user for a 'passwordLength'
   var passwordLength = parseInt(prompt("Provide a length between 8 and 128 characters."))
-  // IF NOT ( passwordLength >= 8 || passwordLength <=128 )
+  // IF NOT ( passwordLength >= 8 || passwordLength <=128 ) IF the chosen password length isnt between 8 and 128
   if (!(passwordLength >= 8 && passwordLength <= 128)) {
     // THEN alert to the user to provide a correct password length
     alert("Please select a password LENGTH between 8 and 128 characters!")
@@ -27,66 +27,47 @@ function generatePassword() {
     return;
   }
 
-  //DECLARE a new list of 'charactersToUse'
+  //DECLARE a new list of 'charactersToUse' 
   var charactersToUse = [];
 
-  // DECLARE a new 'password' string
+  // DECLARE a new 'password' string *Quotes must be empty ortherwise the generator will include a space as a character
   var password = "";
 
   // CONFIRM if the password generator  'isUsingNumbers'
-
   var isUsingNumbers = confirm("Click OKAY to use numbers.")
+
   // IF 'isUsingNumbers'
   if (isUsingNumbers == true) {
-    //IF true add numbers to charactersToUse
+    //IF true add numbers to charactersToUse *CONCAT adds is used to add 'numbers' to charactersToUse array
     charactersToUse = charactersToUse.concat(numbers);
   }
-  // THEN push 'numbers' into 'charactersToUse' list
-  //numbers.push(charactersToUse);
-
-  // AND APPEND one random number from the 'numbers' list
-  //const randomNumber = Math.floor(Math.random() * numbers.length);
-  //console.log(numbers[randomNumber]);
-
 
   // CONFIRM if the password generator 'isUsingLowercaseLetters'
-
   var isUsingLowercaseLetters = confirm("Click OKAY to use lowercase letters.");
+
   // IF 'isUsingLowercaseLetters'
   if (isUsingLowercaseLetters == true) {
     charactersToUse = charactersToUse.concat(lowercaseLetters);
   }
-  // THEN push 'lowercaseLetters' into 'charactersToUse' list
-  //lowercaseLetters.push(charactersToUse);
-  //AND APPEND one random lowercase letter from the 'lowercaseLetters' list
-  //const randomLowercase = Math.floor(Math.random() * lowercaseLetters.length);
-  //console.log(lowercaseLetters[randomLowercase]);
+  
 
   // CONFIRM if the password generator 'isUsingUppercaseLetters'
-
   var isUsingUppercaseLetters = confirm("Click OKAY to use UPPERCASE Letters.");
+
   // IF 'isUsingUppercaseLetters'
   if (isUsingUppercaseLetters == true) {
     charactersToUse = charactersToUse.concat(uppercaseLetters);
   }
-  // THEN push 'uppercaseLetters' into 'charactersToUse' list
-  //uppercaseLetters.push(charactersToUse);
-
-  //const randomUppercase = Math.floor(Math.random() * uppercaseLetters.length);
-  //console.log(uppercaseLetters[randomUppercase]);
+  
 
   // CONFIRM if the password generator 'isUsingSpecialCharacters'
-
   var isUsingSpecialCharacters = confirm("Click OKAY to use Special Characters.");
+
   // IF 'isUsingSpecialCharacters'
   if (isUsingSpecialCharacters == true) {
     charactersToUse = charactersToUse.concat(specialCharacters);
   }
-  // THEN push 'specialCharacters' into 'charactersToUse' list
-  //specialCharacters.push(charactersToUse);
-
-  //const randomSpecial = Math.floor(Math.random() * specialCharacters.length);
-  //console.log(specialCharacters[randomSpecial]);
+  
 
   // IF NO characters are chosen to use **if the user selects no options**
   if (!isUsingNumbers && !isUsingLowercaseLetters && !isUsingUppercaseLetters && !isUsingSpecialCharacters) {
@@ -97,7 +78,7 @@ function generatePassword() {
   }
 
 
-
+  //The following two functions (FOR and WHILE) will accomplish the same result, and will continue th loop until the CHOSEN password length is reached 
   // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
   //for (var i = 0; i < passwordLength; i++) {
 
@@ -109,7 +90,7 @@ function generatePassword() {
 
     // SELECT 'randomCharacter' from 'charactersToUse'
     var randomCharacter = charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
-    // APPEND 'randomCharacter' to 'password' string
+    // APPEND 'randomCharacter' to 'password' string (ASSIGNMENT OPERATOR += asssigns values to javascript variables same as password = password + randomCharacter)
     password += randomCharacter
   }
 
