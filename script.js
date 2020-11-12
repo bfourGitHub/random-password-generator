@@ -22,7 +22,7 @@ function generatePassword() {
   if (!(passwordLength >= 8 && passwordLength <= 128)) {
     // THEN alert to the user to provide a correct password length
     alert("Please select a password LENGTH between 8 and 128 characters!")
-    
+
     // AND Exit Function
     return;
   }
@@ -31,10 +31,10 @@ function generatePassword() {
   var charactersToUse = [];
 
   // DECLARE a new 'password' string
-  var password = " ";
+  var password = "";
 
   // CONFIRM if the password generator  'isUsingNumbers'
-  
+
   var isUsingNumbers = confirm("Click OKAY to use numbers.")
   // IF 'isUsingNumbers'
   if (isUsingNumbers == true) {
@@ -47,10 +47,10 @@ function generatePassword() {
   // AND APPEND one random number from the 'numbers' list
   //const randomNumber = Math.floor(Math.random() * numbers.length);
   //console.log(numbers[randomNumber]);
-  
+
 
   // CONFIRM if the password generator 'isUsingLowercaseLetters'
-  
+
   var isUsingLowercaseLetters = confirm("Click OKAY to use lowercase letters.");
   // IF 'isUsingLowercaseLetters'
   if (isUsingLowercaseLetters == true) {
@@ -63,7 +63,7 @@ function generatePassword() {
   //console.log(lowercaseLetters[randomLowercase]);
 
   // CONFIRM if the password generator 'isUsingUppercaseLetters'
-  
+
   var isUsingUppercaseLetters = confirm("Click OKAY to use UPPERCASE Letters.");
   // IF 'isUsingUppercaseLetters'
   if (isUsingUppercaseLetters == true) {
@@ -76,7 +76,7 @@ function generatePassword() {
   //console.log(uppercaseLetters[randomUppercase]);
 
   // CONFIRM if the password generator 'isUsingSpecialCharacters'
-  
+
   var isUsingSpecialCharacters = confirm("Click OKAY to use Special Characters.");
   // IF 'isUsingSpecialCharacters'
   if (isUsingSpecialCharacters == true) {
@@ -89,14 +89,14 @@ function generatePassword() {
   //console.log(specialCharacters[randomSpecial]);
 
   // IF NO characters are chosen to use **if the user selects no options**
-  if ( !isUsingNumbers && !isUsingLowercaseLetters && !isUsingUppercaseLetters && !isUsingSpecialCharacters) {
+  if (!isUsingNumbers && !isUsingLowercaseLetters && !isUsingUppercaseLetters && !isUsingSpecialCharacters) {
     //THEN ALERT to the user that they must select at least ONE option
     alert("Sorry, you must select at least ONE option to create your password.");
     //AND EXIT FUNCTION
     return;
   }
-    
-    
+
+
 
   // FOR i = 0; CONTINUE as long as i < passwordLength; i++;
   //for (var i = 0; i < passwordLength; i++) {
@@ -108,7 +108,7 @@ function generatePassword() {
   while (password.length < passwordLength) {
 
     // SELECT 'randomCharacter' from 'charactersToUse'
-    var randomCharacter = charactersToUse [ Math.floor(Math.random() * charactersToUse.length)];
+    var randomCharacter = charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
     // APPEND 'randomCharacter' to 'password' string
     password += randomCharacter
   }
